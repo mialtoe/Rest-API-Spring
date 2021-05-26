@@ -5,8 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.sql.Date;
-
+import de.telekom.rest.lookup.*;
 
 
 
@@ -22,24 +21,24 @@ public class Person {
 	  
 	  private String vorname;
 	  private String nachname;
-	  private Date geburtsdatum;
+	  private Salutation anrede;
 	  
-	  public Date getGeburtsdatum() {
-		 return geburtsdatum;
+	  public Salutation getAnrede() {
+		 return anrede;
 	  }
 
-	  public void setGeburtsdatum(Date geburtsdatum) {
-		 this.geburtsdatum = geburtsdatum;
+	  public void setAnrede(byte b) {
+		 this.anrede = Salutation.fromByte(b);
 	  }
 
 	
 	  public Person () {
       }
 	  
-	  public Person(String vname, String nname, Date gebdatum) {
+	  public Person(String vname, String nname, Salutation anrede) {
 		  this.vorname = vname;
 		  this.nachname=nname;
-		  this.geburtsdatum = gebdatum;
+		  this.anrede = anrede;
 	  }
 	
 	  public String getVorname() {
